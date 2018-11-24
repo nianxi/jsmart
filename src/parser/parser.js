@@ -195,8 +195,9 @@ define(['../util/objectmerge', '../util/trimallquotes', '../util/evalstring', '.
       var expressionTag = expression ? new RegExp('^\\s*(' + expression + ')\\s*$', 'i') : expressionAny
       var sTag
       var found
-
-      for (i = 0; i < s.length; ++i) {
+      
+      i = expression == '/literal' ? s.indexOf('{/literal') : 0
+      for (; i < s.length; ++i) {
         if (s.substr(i, ldelim.length) === ldelim) {
           if (skipInWhitespace && (i + 1) < s.length && s.substr((i + 1), 1).match(/\s/)) {
             continue
