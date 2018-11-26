@@ -263,7 +263,7 @@
       var sTag
       var found
 
-      for (i = 0; i < s.length; ++i) {
+      for (; i < s.length; ++i) {
         if (s.substr(i, ldelim.length) === ldelim) {
           if (skipInWhitespace && (i + 1) < s.length && s.substr((i + 1), 1).match(/\s/)) {
             continue
