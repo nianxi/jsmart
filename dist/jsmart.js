@@ -256,7 +256,7 @@
     findTag: function (expression, s) {
       var openCount = 0
       var offset = 0
-      var i = expression == '/literal' ? s.indexOf('{/literal') : 0
+      var i = 0
       var ldelim = this.ldelim
       var rdelim = this.rdelim
       var skipInWhitespace = this.autoLiteral
