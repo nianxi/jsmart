@@ -179,6 +179,8 @@
       var node
       var closeTag
       var usedExtends = 0
+	    var reg = new RegExp('(\s+)?' + this.ldelim + '(\/)?literal' + this.rdelim + '(\s+)?', 'gi');
+	    tpl = tpl.replace(reg, '');
 
       for (openTag = this.findTag('', tpl); openTag; openTag = this.findTag('', tpl)) {
         if (openTag.index) {
