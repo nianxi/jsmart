@@ -318,7 +318,6 @@
             if(i >= 0){
                 s = s.replace(ldelim + literStr + rdelim, getSpace(signLen));
                 s = s.replace(ldelim + '/' + literStr + rdelim, getSpace(signLen + 1));
-                console.log(i)
                 continue;
             }else{
                 console.log('error! literal tag has space around or lack {/literal}!!')
