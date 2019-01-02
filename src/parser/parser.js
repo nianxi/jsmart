@@ -112,8 +112,6 @@ define(['../util/objectmerge', '../util/trimallquotes', '../util/evalstring', '.
       var node
       var closeTag
       var usedExtends = 0
-      var reg = new RegExp('(\s+)?' + this.ldelim + '(\/)?literal' + this.rdelim + '(\s+)?', 'gi');
-	    tpl = tpl.replace(reg, '');
 
       for (openTag = this.findTag('', tpl); openTag; openTag = this.findTag('', tpl)) {
         if (openTag.index) {
@@ -200,6 +198,11 @@ define(['../util/objectmerge', '../util/trimallquotes', '../util/evalstring', '.
 
       for (; i < s.length; ++i) {
         if (s.substr(i, ldelim.length) === ldelim) {
+          // Ignore literal tags
+          if(s.substr(i + ldelim.length).indexOf('literal' + rdelim) == 0){
+            i = s.indexOf(ldelim + '/literal')
+            continue
+          }
           if (skipInWhitespace && (i + 1) < s.length && s.substr((i + 1), 1).match(/\s/)) {
             continue
           }
